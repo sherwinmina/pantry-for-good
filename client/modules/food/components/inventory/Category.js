@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class Category extends React.Component {
   constructor(props) {
@@ -12,17 +12,6 @@ class Category extends React.Component {
 
   onClickShowEdit = () => {
     this.setState({ showEdit: true })
-  }
-
-  onEnterSubmitEdit = e => {
-    if (e.key === "Enter") {
-      this.setState({ showEdit: false })
-      this.props.onItemEdit(this.props.id, this.state.editedName)
-    }
-
-    if (e.key === "Escape") {
-      this.setState({ showEdit: false })
-    }
   }
 
   onClickSubmitEdit = () => {
@@ -40,22 +29,10 @@ class Category extends React.Component {
         <tr>
           <td>
             <div className="input-group">
-              <input
-                type="text"
-                className="form-control"
-                value={this.state.editedName}
-                onChange={this.onChange}
-                onKeyDown={this.onEnterSubmitEdit}
-                required
-                autoFocus
-              />
+              <input type="text" className="form-control" value={this.state.editedName} onChange={this.onChange} required />
               <span className="input-group-btn">
-                <button
-                  className="btn btn-success btn-flat"
-                  onClick={this.onClickSubmitEdit}
-                  disabled={this.state.editedName.trim() === ""}
-                >
-                  <i className="fa fa-check" />
+                <button className="btn btn-success btn-flat" onClick={this.onClickSubmitEdit} disabled={this.state.editedName.trim() === ""}>
+                  <i className="fa fa-check"></i>
                 </button>
               </span>
             </div>
@@ -67,25 +44,16 @@ class Category extends React.Component {
         <tr>
           <td>
             <span>{this.props.category}</span>
-            <span
-              className="tools"
-              style={{ float: "right", marginRight: "8px" }}
-            >
-              <i
-                className="fa fa-edit text-blue"
-                onClick={this.onClickShowEdit}
-                style={{ marginRight: "8px" }}
-              />
-              <i
-                className="fa fa-trash-o text-red"
-                onClick={this.onClickRemove}
-              />
+            <span className="tools" style={{float: 'right', marginRight: '8px'}}>
+              <i className="fa fa-edit text-blue" onClick={this.onClickShowEdit} style={{marginRight: '8px'}}></i>
+              <i className="fa fa-trash-o text-red" onClick={this.onClickRemove}></i>
             </span>
           </td>
         </tr>
       )
     }
   }
+
 }
 
-export default Category;
+export default Category
